@@ -39,7 +39,7 @@ export default function SectionPage({ params }: PageProps) {
             <p className="mb-4 whitespace-pre-wrap">{test.content}</p>
             <CodeEditor 
               key={currentSection}
-              initialCode={currentSection === 'debugging' ? test.initialCode : ""}
+              initialCode={test.initialCode}
               expectedOutput={test.expectedOutput}
             />
           </div>

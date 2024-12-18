@@ -10,10 +10,22 @@ interface SubSection {
   content: string;
 }
 
-interface Day {
+export interface Day {
   id: number;
   title: string;
-  sections: Section[];
+  sections: {
+    id: string;
+    title: string;
+    slug: string;
+  }[];
 }
 
-export type { Section, SubSection, Day }; 
+export interface TestContent {
+  title: string;
+  content: string;
+  initialCode: string;
+  expectedOutput: string[];
+}
+
+// Only export the non-exported interfaces
+export type { Section, SubSection };

@@ -1,4 +1,4 @@
-import { Day } from '@/types';
+import { Day, TestContent } from '@/types';
 
 export const printingLesson = {
   title: 'Printing in Python',
@@ -35,11 +35,10 @@ export const printingLesson = {
   `
 };
 
-export const printingTest = {
+export const printingTest: TestContent = {
   title: 'Print Function Test',
-  content: `Print the following recipe steps exactly as shown:
-
-print("1. Mix 500g of Flour, 10g Yeast and 300ml Water in a bowl.")
+  content: `Print the following recipe steps exactly as shown:`,
+  initialCode: `print("1. Mix 500g of Flour, 10g Yeast and 300ml Water in a bowl.")
 print("2. Knead the dough for 10 minutes.")
 print("3. Add 3g of Salt.")
 print("4. Leave to rise for 2 hours.")
@@ -73,7 +72,7 @@ export const debuggingLesson = {
   `
 };
 
-export const debuggingTest = {
+export const debuggingTest: TestContent = {
   title: 'Fix the Code',
   content: `There are errors in the code below. Fix each line so the code runs correctly.
 Each line should print exactly what's shown in the expected output.`,
