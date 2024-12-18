@@ -1,7 +1,6 @@
 'use client';
 import { use } from 'react';
 import { day1Data } from '../../../data/courseData';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
 interface PageProps {
