@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { day1Data } from '../data/courseData';
 import dynamic from 'next/dynamic';
+import Syllabus from '@/components/Syllabus';
 
 const ProjectTerminal = dynamic(() => import('../components/ProjectTerminal'), {
   ssr: false
@@ -66,6 +67,8 @@ export default function Home() {
             </div>
           )}
         </div>
+
+        <Syllabus />
       </div>
     </main>
   );

@@ -25,6 +25,7 @@ export interface TestContent {
   content: string;
   initialCode: string;
   expectedOutput: string[];
+  testCode?: string;
 }
 
 // Only export the non-exported interfaces

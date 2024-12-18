@@ -134,20 +134,46 @@ const CodeEditor = ({ initialCode, expectedOutput }: CodeEditorProps) => {
       await pyodide.runPythonAsync(code);
       
       // Get the output
-      const stdout = pyodide.runPython('sys.stdout.getvalue()');
-      const outputStr = stdout ? stdout.toString() : '';
       
+      // Split the user's code into lines and remove empty lines
+      const userLines = code
+        .split('\n')
+        .filter(line => line.trim() && !line.trim().startsWith('#'));
+
       // Compare with expected output
-      const userLines = outputStr.trim().split('\n');
       const allCorrect = expectedOutput.every((expected, index) => 
         userLines[index]?.trim() === expected.trim()
       );
 
       if (allCorrect) {
-        setOutput('✅ All tests passed! Great job!');
-        setStatus('success');
+        // Run the code again to verify the swap worked
+        const result = pyodide.runPython(`
+          import sys
+          sys.stdout = StringIO()
+          
+          # Initial setup
+          glass1 = "milk"
+          glass2 = "juice"
+          
+          # Student's code
+          ${code}
+          
+          # Print results
+          print(glass1)
+          print(glass2)
+        `);
+        
+        const finalOutput = result?.toString().trim().split('\n') || [];
+        
+        if (finalOutput[0] === 'juice' && finalOutput[1] === 'milk') {
+          setOutput('✅ All tests passed! Great job!');
+          setStatus('success');
+        } else {
+          setOutput('❌ The variables were not correctly swapped. Try again!');
+          setStatus('error');
+        }
       } else {
-        setOutput('❌ Output doesn\'t match expected result. Try again!');
+        setOutput('❌ Your code doesn\'t match the expected solution. Make sure to use glass3 as your temporary variable!');
         setStatus('error');
       }
     } catch (error) {
