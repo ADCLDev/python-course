@@ -1,4 +1,4 @@
-import { Day } from '../types';
+import { Day } from '@/types';
 
 export const printingLesson = {
   title: 'Printing in Python',
@@ -37,13 +37,13 @@ export const printingLesson = {
 
 export const printingTest = {
   title: 'Print Function Test',
-  content: `Print the following bread recipe steps exactly as shown:
+  content: `Print the following recipe steps exactly as shown:
 
-1. Mix 500g of Flour, 10g Yeast and 300ml Water in a bowl.
-2. Knead the dough for 10 minutes.
-3. Add 3g of Salt.
-4. Leave to rise for 2 hours.
-5. Bake at 200 degrees C for 30 minutes.`,
+print("1. Mix 500g of Flour, 10g Yeast and 300ml Water in a bowl.")
+print("2. Knead the dough for 10 minutes.")
+print("3. Add 3g of Salt.")
+print("4. Leave to rise for 2 hours.")
+print("5. Bake at 200 degrees C for 30 minutes.")`,
   expectedOutput: [
     '1. Mix 500g of Flour, 10g Yeast and 300ml Water in a bowl.',
     '2. Knead the dough for 10 minutes.',
@@ -53,34 +53,59 @@ export const printingTest = {
   ]
 };
 
+export const debuggingLesson = {
+  title: 'Debugging in Python',
+  content: `
+    # Debugging in Python
+    
+    ## Common Python Errors
+    1. SyntaxError: Missing parentheses, quotes, or colons
+    2. TypeError: Using wrong data types together
+    3. NameError: Using undefined variables
+    4. IndentationError: Incorrect code indentation
+    
+    ## How to Debug
+    1. Read the error message carefully
+    2. Look at the line number in the error
+    3. Check for common syntax mistakes
+    4. Use print statements to debug
+    5. Test small parts of code separately
+  `
+};
+
+export const debuggingTest = {
+  title: 'Fix the Code',
+  content: `There are errors in the code below. Fix each line so the code runs correctly.
+Each line should print exactly what's shown in the expected output.`,
+  initialCode: `# Fix the code below
+
+print(Notes from Day 1")
+print("The print statement is used to output strings")
+print("Strings are strings of characters"
+priint("String Concatenation is done with the + sign")
+print(("New lines can be created with a \\ and the letter n")`,
+  expectedOutput: [
+    'Notes from Day 1',
+    'The print statement is used to output strings',
+    'Strings are strings of characters',
+    'String Concatenation is done with the + sign',
+    'New lines can be created with a \\ and the letter n'
+  ]
+};
+
 export const day1Data: Day = {
   id: 1,
-  title: 'Introduction to Python Basics',
+  title: 'Getting Started with Python',
   sections: [
     {
       id: 'printing',
-      title: 'Printing and Output',
+      title: 'Printing',
       slug: 'printing'
     },
     {
       id: 'debugging',
-      title: 'Debugging Techniques',
+      title: 'Debugging Practice',
       slug: 'debugging'
-    },
-    {
-      id: 'strings',
-      title: 'String Manipulation',
-      slug: 'strings'
-    },
-    {
-      id: 'comments',
-      title: 'Python Comments',
-      slug: 'comments'
-    },
-    {
-      id: 'variables',
-      title: 'Working with Variables',
-      slug: 'variables'
     }
   ]
 }; 
