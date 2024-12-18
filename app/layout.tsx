@@ -1,6 +1,7 @@
 import { inter } from './fonts';
 import './globals.css';
 import type { Metadata } from 'next';
+import { QuizProgressProvider } from '@/contexts/QuizProgressContext';
 
 export const metadata: Metadata = {
   title: '100 Days of Python',
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <body>
-        {children}
+        <QuizProgressProvider>
+          {children}
+        </QuizProgressProvider>
       </body>
     </html>
   );

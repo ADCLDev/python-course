@@ -12,6 +12,7 @@ const ProjectTerminal = dynamic(() => import('../components/ProjectTerminal'), {
 
 export default function Home() {
   const [showProject, setShowProject] = useState(false);
+  const [showChallenges, setShowChallenges] = useState(false);
 
   return (
     <main className="min-h-screen p-8 max-w-6xl mx-auto">
@@ -59,11 +60,52 @@ export default function Home() {
             >
               {showProject ? 'Hide Project' : 'Try Project'}
             </button>
+            <button
+              onClick={() => setShowChallenges(!showChallenges)}
+              className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            >
+              {showChallenges ? 'Hide Challenges' : 'View Challenges'}
+            </button>
+            <Link
+              href="/quiz"
+              className="px-6 py-3 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors"
+            >
+              Take Quiz
+            </Link>
           </div>
 
           {showProject && (
             <div className="mt-6">
               <ProjectTerminal />
+            </div>
+          )}
+
+          {showChallenges && (
+            <div className="mt-6 space-y-6">
+              <h3 className="text-2xl font-bold">Day 1 Challenges</h3>
+              <div className="grid gap-4">
+                <Link
+                  href={`/day/${day1Data.id}/challenges/1`}
+                  className="p-4 border rounded-lg hover:bg-gray-50"
+                >
+                  <h4 className="font-semibold">Recipe Generator</h4>
+                  <p className="text-gray-600">Create a recipe title generator using string concatenation</p>
+                </Link>
+                <Link
+                  href={`/day/${day1Data.id}/challenges/2`}
+                  className="p-4 border rounded-lg hover:bg-gray-50"
+                >
+                  <h4 className="font-semibold">Debug the Story</h4>
+                  <p className="text-gray-600">Fix the broken print statements to tell a story</p>
+                </Link>
+                <Link
+                  href={`/day/${day1Data.id}/challenges/3`}
+                  className="p-4 border rounded-lg hover:bg-gray-50"
+                >
+                  <h4 className="font-semibold">Variable Swap Chain</h4>
+                  <p className="text-gray-600">Practice variable manipulation with a three-way swap</p>
+                </Link>
+              </div>
             </div>
           )}
         </div>

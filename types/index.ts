@@ -28,5 +28,30 @@ export interface TestContent {
   testCode?: string;
 }
 
+export interface QuizQuestion {
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation: string;
+  category: string;
+}
+
+export interface QuizProgress {
+  currentDay: number;
+  completedQuizzes: number[];
+  scores: {
+    [day: number]: {
+      score: number;
+      totalQuestions: number;
+      categoryScores: {
+        [category: string]: {
+          correct: number;
+          total: number;
+        };
+      };
+    };
+  };
+}
+
 // Only export the non-exported interfaces
 export type { Section, SubSection };
