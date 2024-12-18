@@ -1,6 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 100 Days of Python
 
-## Getting Started
+An interactive Python learning platform built with Next.js and Pyodide.
+
+## Deployment
+
+This project is configured for deployment on Vercel:
+
+1. Push your code to GitHub
+2. Import the repository in Vercel
+3. Add the following environment variables in Vercel:
+   - `NEXT_PUBLIC_PYODIDE_VERSION`: v0.24.1
+   - `NEXT_PUBLIC_BASE_URL`: Your production URL
+
+## Development
 
 First, run the development server:
 
